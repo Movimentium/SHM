@@ -6,7 +6,7 @@
 //  Copyright © 2020 Miguel Gallego Martín. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NetConnector {
 
@@ -19,7 +19,7 @@ class NetConnector {
     private let ts = 1 // param ts - a timestamp (or other long string which can change on a request-by-request basis)
     private let apiKey = "47997bf10347e417676f096871a3ff63"  // apikey param - public key
     private let strHash = "106c34b206ff1addf1752ca99e1dc5d7" //param hash - a md5 digest of the ts parameter, your private key and your public key (e.g. md5(ts+privateKey+publicKey)
-    lazy private(set) var params: String = {
+    lazy private(set) var authParams: String = {
         var str = "?"
         str += "ts=\(self.ts)"
         str += "&apikey=\(self.apiKey)"
@@ -27,6 +27,27 @@ class NetConnector {
         return str
     }()
     
+   
+    private let cacheForThumbnails = NSCache<NSString, UIImage>()
+
+    func thumbnail(path: String, ext: String) -> UIImage? {
+        let nsStrPath = path as NSString
+        var img: UIImage? = nil  // or default thumbnail
+        if let cachedImg = cacheForThumbnails.object(forKey: nsStrPath) {
+            img = cachedImg
+        } else if let urlThumbnail = URL(string: path + ext){
+            session.dataTask(with: urlThumbnail) { (data, resonse, error) in
+                guard let _ = error, let imgData = data, let imgDownloaded = UIImage(data: imgData) else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    img = imgDownloaded
+                    self.cacheForThumbnails.setObject(imgDownloaded, forKey: nsStrPath )
+                }
+            }
+        }
+        return img
+    }
 }
 
 //For example, a user with a public key of "1234" and a private key of "abcd" could construct a valid call as follows:
@@ -56,7 +77,7 @@ enum NetRequest {
         let netCon = NetConnector.single
         switch self {
         case .characters:
-            return netCon.strEndpoint + "characters" + netCon.params
+            return netCon.strEndpoint + "characters" + netCon.authParams
         }
     }
     
@@ -103,6 +124,14 @@ enum NetRequest {
             Log.response(data: data, response: httpUrlResp, error: error)
             
             if httpUrlResp.statusCode == 200 {
+                do {
+                    SHMDataProvider.single.response = try JSONDecoder().decode(CharacterResponse.self, from: data)
+                } catch  {
+                    print(error.localizedDescription)
+                }
+//                SHMDataProvider.single.response = try? JSONDecoder().decode(CharacterResponse.self, from: data)
+ 
+                print(SHMDataProvider.single.response?.code)
                 completion(true, nil, data)
             }
             else {

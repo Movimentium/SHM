@@ -15,11 +15,14 @@ protocol LandingViewInterface: AnyObject {
 class LandingPresenter {
     weak var viewInterface: LandingViewInterface?
     
-    
+
     func llamar() {
         NetRequest.characters.resumeTask { (isSuccess, strError, data) in
-             print("ERROR \(String(describing: LandingPresenter.self)) \(#function)")
-            print("strError \(String(describing: strError))")
+        
+            
+ 
+            
+            
         }
 
     }
