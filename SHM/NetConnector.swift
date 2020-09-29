@@ -115,7 +115,7 @@ enum NetRequest {
     func resumeTask(completion: @escaping (_ success:Bool,_ errorMsg: String?,_ data:Data?) -> Void) {
         let task = NetConnector.single.session.dataTask(with: newRequest()) { (dataResp:Data?, urlResp:URLResponse?, error:Error?) in
             guard let data = dataResp else {
-                print("ERROR: responseData == nil")  // TODO: error strings in K class
+                print("ERROR: responseData == nil")  
                 completion(false,nil,nil)
                 return
             }
@@ -126,13 +126,12 @@ enum NetRequest {
             if httpUrlResp.statusCode == 200 {
                 do {
                     SHMDataProvider.single.response = try JSONDecoder().decode(CharacterResponse.self, from: data)
+                    Log.printDescr(of: SHMDataProvider.single.response)
+                    completion(true, nil, data)
                 } catch  {
                     print(error.localizedDescription)
+                    completion(false, error.localizedDescription, nil)
                 }
-//                SHMDataProvider.single.response = try? JSONDecoder().decode(CharacterResponse.self, from: data)
- 
-                print(SHMDataProvider.single.response?.code)
-                completion(true, nil, data)
             }
             else {
                 // TODO: write code for others statusCode: 404, 401, ...
@@ -146,7 +145,7 @@ enum NetRequest {
 
 // MARK: - API docs
 // https://developer.marvel.com/documentation/authorization
-//
+// https://developer.marvel.com/docs#!/public/getCharacterIndividual_get_1
 // Authorization Errors
 //The following errors are returned by the Marvel Comics API when issues with authorization occur. These errors are returned by all endpoints.
 //

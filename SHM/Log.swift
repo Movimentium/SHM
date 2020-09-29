@@ -13,10 +13,12 @@ import Foundation
 // The extension of Stringnable protocol:
 /// give a default implementation of description method used to log in console info about objects
 
-public protocol Stringnable : CustomStringConvertible { }
+public protocol Stringnable {
+     var strDescr: String { get }
+}
 
 extension Stringnable {
-    public var description: String {
+    public var strDescr: String {
         let mirror = Mirror(reflecting: self)
         let strType = "\(mirror.subjectType)"
         var str = "> > \(strType):\n"     // To provide better visibility and object diferentation in XCode console
@@ -45,9 +47,12 @@ extension Stringnable {
                 for obj in arr  {
                     if let o = obj as? Stringnable {
                         strValue += "\n\n"
-                        strValue += o.description
+                        strValue += o.strDescr
                     }
                 }
+            }
+            else if let o = v as? Stringnable {
+                strValue = o.strDescr
             }
             else {
                 strValue = "---"
@@ -73,9 +78,13 @@ class Log {
     
     class func description(of obj:Any?) -> String {
         if let o = obj as? Stringnable {
-            return o.description
+            return o.strDescr
         }
         return "Error: obj is not Stringnable"
+    }
+    
+    class func printDescr(of obj:Any?){
+        print(Log.description(of: obj))
     }
     
     class func request(_ request: URLRequest){
