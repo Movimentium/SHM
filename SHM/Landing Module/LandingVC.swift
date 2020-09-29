@@ -17,6 +17,8 @@ class LandingVC: UIViewController, LandingViewInterface {
         super.viewDidLoad()
         presenter.viewInterface = self
         setupUI()
+        
+        presenter.llamar()
     }
     
     func setupUI() {

@@ -17,6 +17,8 @@
 		0C56BA4E25230567006A3062 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C56BA4D25230567006A3062 /* ListVC.swift */; };
 		0C56BA50252306E5006A3062 /* LandingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C56BA4F252306E5006A3062 /* LandingPresenter.swift */; };
 		0C56BA522523077D006A3062 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C56BA512523077D006A3062 /* ListPresenter.swift */; };
+		0C56BA54252312D5006A3062 /* NetConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C56BA53252312D5006A3062 /* NetConnector.swift */; };
+		0C56BA5625231832006A3062 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C56BA5525231832006A3062 /* Log.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		0C56BA4D25230567006A3062 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		0C56BA4F252306E5006A3062 /* LandingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPresenter.swift; sourceTree = "<group>"; };
 		0C56BA512523077D006A3062 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		0C56BA53252312D5006A3062 /* NetConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetConnector.swift; sourceTree = "<group>"; };
+		0C56BA5525231832006A3062 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 			children = (
 				0C56BA2F252302C8006A3062 /* AppDelegate.swift */,
 				0C56BA31252302C8006A3062 /* SceneDelegate.swift */,
+				0C56BA5525231832006A3062 /* Log.swift */,
+				0C56BA53252312D5006A3062 /* NetConnector.swift */,
 				0C56BA49252303E6006A3062 /* Landing Module */,
 				0C56BA4C2523054A006A3062 /* List Module */,
 				0C56BA38252302C9006A3062 /* Assets.xcassets */,
@@ -167,11 +173,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C56BA54252312D5006A3062 /* NetConnector.swift in Sources */,
 				0C56BA4E25230567006A3062 /* ListVC.swift in Sources */,
 				0C56BA50252306E5006A3062 /* LandingPresenter.swift in Sources */,
 				0C56BA30252302C8006A3062 /* AppDelegate.swift in Sources */,
 				0C56BA48252303DC006A3062 /* LandingVC.swift in Sources */,
 				0C56BA522523077D006A3062 /* ListPresenter.swift in Sources */,
+				0C56BA5625231832006A3062 /* Log.swift in Sources */,
 				0C56BA32252302C8006A3062 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

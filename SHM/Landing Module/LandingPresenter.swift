@@ -14,4 +14,26 @@ protocol LandingViewInterface: AnyObject {
 
 class LandingPresenter {
     weak var viewInterface: LandingViewInterface?
+    
+    
+    func llamar() {
+        NetRequest.characters.resumeTask { (isSuccess, strError, data) in
+             print("ERROR \(String(describing: LandingPresenter.self)) \(#function)")
+            print("strError \(String(describing: strError))")
+        }
+
+    }
+//    NetRequest.transactions.resumeTask { [weak self] (isSuccess, strError, data) in
+//        if let _ = data, isSuccess {
+//            self?.arrRawTransactions = try? JSONDecoder().decode([Transaction].self, from: data!)
+//            self?.debug_arrRawTransactions()
+//            self?.proccessArrRawTransactions()
+//        } else {
+//            self?.isUpdatingTransactionList = false
+//            print("ERROR \(String(describing: TransactionsInteractor.self)) \(#function)")
+//        }
+//    }
+
+    
+    
 }
