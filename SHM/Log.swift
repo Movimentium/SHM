@@ -8,11 +8,6 @@
 
 import Foundation
 
-// Stringnable:
-/// protocol with the definition of the description method
-// The extension of Stringnable protocol:
-/// give a default implementation of description method used to log in console info about objects
-
 public protocol Stringnable {
      var strDescr: String { get }
 }

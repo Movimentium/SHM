@@ -21,6 +21,8 @@
 		0C56BA5625231832006A3062 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C56BA5525231832006A3062 /* Log.swift */; };
 		0C56BA582523327F006A3062 /* SHMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C56BA572523327F006A3062 /* SHMModel.swift */; };
 		0C56BA5A2523346D006A3062 /* SHMDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C56BA592523346D006A3062 /* SHMDataProvider.swift */; };
+		0C56BA5D25235345006A3062 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C56BA5B25235345006A3062 /* ListCell.swift */; };
+		0C56BA5E25235345006A3062 /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C56BA5C25235345006A3062 /* ListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		0C56BA5525231832006A3062 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		0C56BA572523327F006A3062 /* SHMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHMModel.swift; sourceTree = "<group>"; };
 		0C56BA592523346D006A3062 /* SHMDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHMDataProvider.swift; sourceTree = "<group>"; };
+		0C56BA5B25235345006A3062 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		0C56BA5C25235345006A3062 /* ListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 		0C56BA4C2523054A006A3062 /* List Module */ = {
 			isa = PBXGroup;
 			children = (
+				0C56BA5B25235345006A3062 /* ListCell.swift */,
+				0C56BA5C25235345006A3062 /* ListCell.xib */,
 				0C56BA4A25230543006A3062 /* List.storyboard */,
 				0C56BA4D25230567006A3062 /* ListVC.swift */,
 				0C56BA512523077D006A3062 /* ListPresenter.swift */,
@@ -169,6 +175,7 @@
 				0C56BA39252302C9006A3062 /* Assets.xcassets in Resources */,
 				0C56BA4B25230543006A3062 /* List.storyboard in Resources */,
 				0C56BA4425230302006A3062 /* LaunchScreen.storyboard in Resources */,
+				0C56BA5E25235345006A3062 /* ListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +192,7 @@
 				0C56BA30252302C8006A3062 /* AppDelegate.swift in Sources */,
 				0C56BA48252303DC006A3062 /* LandingVC.swift in Sources */,
 				0C56BA5A2523346D006A3062 /* SHMDataProvider.swift in Sources */,
+				0C56BA5D25235345006A3062 /* ListCell.swift in Sources */,
 				0C56BA522523077D006A3062 /* ListPresenter.swift in Sources */,
 				0C56BA582523327F006A3062 /* SHMModel.swift in Sources */,
 				0C56BA5625231832006A3062 /* Log.swift in Sources */,
